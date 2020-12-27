@@ -1,0 +1,25 @@
+{
+  "name": "connection-websocket-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server/app.js",
+    "clear": "del /f /q /s .\\public\\js\\*.*",
+    "del-bundle": "del /f /q /s .\\src\\bundle.js",
+    "bundle-debug": "browserify --debug src/client/main.js -o public/js/bundle.js",
+    "bundle-release": "browserify src/client/main.js -o src/client/bundle.js",
+    "uglify": "uglifyjs src/client/bundle.js -o public/js/bundle.min.js",
+    "debug": "npm run bundle-debug",
+    "release": "npm run clear && npm run bundle-release && npm run uglify && npm run del-bundle"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "ws": "^7.3.1"
+  }
+}
